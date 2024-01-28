@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+}
+
+.app{
+    height: 100vh;
+    background: linear-gradient(to bottom, #013D6F, #0A162C);
+}
+
+.ctrl-l{
+    height: 100vh;
+}
+
+.joystick{
+    background: #d9d9d9;
+    border-radius: 20px;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+}
+
+.joystick-hold{
+    background: #bfbfbf;
+}
+
+.joystick-hoder{
+    background: #4a4a4a;
+    margin: 10px;
+    height: 85%;
+    border-radius: 100%;
+}
+
+.joystick-arrow{
+    color: #FFFFFF;
+}
