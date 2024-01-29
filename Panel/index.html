@@ -5,29 +5,326 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <script src="./joy.min.js"></script>
-
+    <meta name="apple-mobile-web-app-title" content="AppTitle">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>機器人控制面板</title>
+
+    <style>
+
+    </style>
 </head>
 
 <body>
     <div class="app">
+        <!-- <div id="status1" style="color: red;"></div> -->
 
         <div class="ctrl-l">
+
             <div class="joystick">
-                <div class="joystick-hoder">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="joystick-arrow" width="45" height="45"
-                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <div class="joystick-hold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        class="joystick-arrow-up">
                         <path d="M16 9l-4 -4" />
                         <path d="M8 9l4 -4" />
                     </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        class="joystick-arrow-down">
+                        <path d="M16 15l-4 4" />
+                        <path d="M8 15l4 4" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        class="joystick-arrow-left">
+                        <path d="M9 16l-4 -4" />
+                        <path d="M9 8l-4 4" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        class="joystick-arrow-right">
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+
+                    <div class="joystick-base"></div>
+                    <div id="stick1">
+                        <div class="stick-inside"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pos-ctrl">
+                <button class="btn btn-pos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M16 9l-4 -4" />
+                        <path d="M8 9l4 -4" />
+                    </svg>
+                </button>
+                <button class="btn btn-pos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M16 15l-4 4" />
+                        <path d="M8 15l4 4" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="ctrl-c">
+            <img src="/hoder.png" alt="ESPcam" class="ESPcam">
+        </div>
+
+        <div class="ctrl-r">
+            <button class="btn btn-emgc">
+                <p class="btn-text">緊急按鈕</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 9v4" />
+                    <path
+                        d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                    <path d="M12 16h.01" />
+                </svg>
+            </button>
+            <button class="btn btn-func">
+                <p class="btn-text">滅火功能</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 25 25" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 7a4 4 0 0 1 4 4v9a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-9a4 4 0 0 1 4 -4z" />
+                    <path d="M9 16h6" />
+                    <path d="M12 7v-3" />
+                    <path d="M16 5l-4 -1l4 -1" />
+                    <path d="M12 4h-3a3 3 0 0 0 -3 3" />
+                </svg>
+            </button>
+            <button class="btn btn-func">
+                <p class="btn-text">植物澆花</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 25 25" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" />
+                </svg>
+            </button>
+            <button class="btn btn-func">
+                <p class="btn-text">夾爪開關</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 25 25" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M16 3l4 4l-4 4" />
+                    <path d="M10 7l10 0" />
+                    <path d="M8 13l-4 4l4 4" />
+                    <path d="M4 17l9 0" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="joystick-2">
+            <div class="joystick-hold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    class="joystick-arrow-up">
+                    <path d="M16 9l-4 -4" />
+                    <path d="M8 9l4 -4" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    class="joystick-arrow-down">
+                    <path d="M16 15l-4 4" />
+                    <path d="M8 15l4 4" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    class="joystick-arrow-left">
+                    <path d="M9 16l-4 -4" />
+                    <path d="M9 8l-4 4" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    class="joystick-arrow-right">
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                </svg>
+
+                <div class="joystick-base"></div>
+                <div id="stick2">
+                    <div class="stick-inside"></div>
                 </div>
             </div>
         </div>
 
+        <div class="pos-ctrl-2">
+            <button class="btn btn-pos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 5l0 14" />
+                    <path d="M16 9l-4 -4" />
+                    <path d="M8 9l4 -4" />
+                </svg>
+            </button>
+            <button class="btn btn-pos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 5l0 14" />
+                    <path d="M16 15l-4 4" />
+                    <path d="M8 15l4 4" />
+                </svg>
+            </button>
+        </div>
     </div>
 </body>
+
+
+<script>
+    class JoystickController {
+        // stickID: ID of HTML element (representing joystick) that will be dragged
+        // maxDistance: maximum amount joystick can move in any direction
+        // deadzone: joystick must move at least this amount from origin to register value change
+
+        calculateDirection() {
+            // 檢測搖桿是否在中心位置
+            if (this.value.x === 0 && this.value.y === 0) {
+                return "中心";
+            }
+
+            const angle = Math.atan2(this.value.y, this.value.x) * 180 / Math.PI;
+            if (angle >= -22.5 && angle < 22.5) return "右";
+            // if (angle >= 22.5 && angle < 67.5) return "東北";
+            if (angle >= 67.5 && angle < 112.5) return "下";  // 南北對調
+            // if (angle >= 112.5 && angle < 157.5) return "西南";
+            if ((angle >= 157.5 && angle <= 180) || (angle >= -180 && angle < -157.5)) return "左";
+            // if (angle >= -157.5 && angle < -112.5) return "西北";
+            if (angle >= -112.5 && angle < -67.5) return "上";  // 南北對調
+            // if (angle >= -67.5 && angle < -22.5) return "東南";
+            return "中心";
+        }
+
+        constructor(stickID, maxDistance, deadzone) {
+            this.id = stickID;
+            let stick = document.getElementById(stickID);
+
+            // location from which drag begins, used to calculate offsets
+            this.dragStart = null;
+
+            // track touch identifier in case multiple joysticks present
+            this.touchId = null;
+
+            this.active = false;
+            this.value = { x: 0, y: 0 };
+
+            let self = this;
+
+            function handleDown(event) {
+                self.active = true;
+
+                // all drag movements are instantaneous
+                stick.style.transition = '0s';
+
+                // touch event fired before mouse event; prevent redundant mouse event from firing
+                event.preventDefault();
+
+                if (event.changedTouches)
+                    self.dragStart = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY };
+                else
+                    self.dragStart = { x: event.clientX, y: event.clientY };
+
+                // if this is a touch event, keep track of which one
+                if (event.changedTouches)
+                    self.touchId = event.changedTouches[0].identifier;
+            }
+
+            function handleMove(event) {
+                if (!self.active) return;
+
+                // if this is a touch event, make sure it is the right one
+                // also handle multiple simultaneous touchmove events
+                let touchmoveId = null;
+                if (event.changedTouches) {
+                    for (let i = 0; i < event.changedTouches.length; i++) {
+                        if (self.touchId == event.changedTouches[i].identifier) {
+                            touchmoveId = i;
+                            event.clientX = event.changedTouches[i].clientX;
+                            event.clientY = event.changedTouches[i].clientY;
+                        }
+                    }
+
+                    if (touchmoveId == null) return;
+                }
+
+                const xDiff = event.clientX - self.dragStart.x;
+                const yDiff = event.clientY - self.dragStart.y;
+                const angle = Math.atan2(yDiff, xDiff);
+                const distance = Math.min(maxDistance, Math.hypot(xDiff, yDiff));
+                const xPosition = distance * Math.cos(angle);
+                const yPosition = distance * Math.sin(angle);
+
+                // move stick image to new position
+                stick.style.transform = `translate3d(${xPosition}px, ${yPosition}px, 0px)`;
+
+                // deadzone adjustment
+                const distance2 = (distance < deadzone) ? 0 : maxDistance / (maxDistance - deadzone) * (distance - deadzone);
+                const xPosition2 = distance2 * Math.cos(angle);
+                const yPosition2 = distance2 * Math.sin(angle);
+                const xPercent = parseFloat((xPosition2 / maxDistance).toFixed(4));
+                const yPercent = parseFloat((yPosition2 / maxDistance).toFixed(4));
+
+                self.value = { x: xPercent, y: yPercent };
+            }
+
+            function handleUp(event) {
+                if (!self.active) return;
+
+                // if this is a touch event, make sure it is the right one
+                if (event.changedTouches && self.touchId != event.changedTouches[0].identifier) return;
+
+                // transition the joystick position back to center
+                stick.style.transition = '.2s';
+                stick.style.transform = `translate3d(0px, 0px, 0px)`;
+
+                // reset everything
+                self.value = { x: 0, y: 0 };
+                self.touchId = null;
+                self.active = false;
+            }
+
+            stick.addEventListener('mousedown', handleDown);
+            stick.addEventListener('touchstart', handleDown);
+            document.addEventListener('mousemove', handleMove, { passive: false });
+            document.addEventListener('touchmove', handleMove, { passive: false });
+            document.addEventListener('mouseup', handleUp);
+            document.addEventListener('touchend', handleUp);
+        }
+    }
+
+    let joystick1 = new JoystickController("stick1", 64, 8);
+    let joystick2 = new JoystickController("stick2", 64, 8);
+    // let joystick2 = new JoystickController("stick2", 64, 8);
+
+    function update() {
+        let direction1 = joystick1.calculateDirection();
+        document.getElementById("status1").innerText = "Joystick 1: " + JSON.stringify(joystick1.value) + ", 方向: " + direction1;
+        // document.getElementById("status2").innerText = "Joystick 2: " + JSON.stringify(joystick2.value);
+    }
+
+    // setInterval(update, 1);
+
+</script>
 
 </html>
