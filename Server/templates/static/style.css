@@ -1,0 +1,224 @@
+body{
+    margin: 0;
+    user-select: none;
+}
+
+p{
+    margin: 0;
+}
+
+.app{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #013D6F, #0A162C);
+    display: flex;
+}
+
+.ctrl-l{
+    height: 100vh;
+    width: 210px;
+    position: relative;
+}
+
+.joystick {
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    left: 5px;
+    bottom: 5px;
+    background: rgb(217, 217, 217);
+    border-radius: 20px;
+    padding: 10px;
+    transform: scale(0.7);
+}
+
+.joystick-2 {
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    right: 50px;
+    bottom: 15px;
+    background: rgb(217, 217, 217);
+    border-radius: 20px;
+    padding: 10px;
+    transform: scale(0.7);
+}
+
+.joystick-hold {
+    height: 100%;
+    background: rgb(74, 74, 74);
+    border-radius: 100%;
+}
+
+.joystick-arrow-up {
+    font-size: 30px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.joystick-arrow-down {
+    font-size: 30px;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.joystick-arrow-left {
+    font-size: 30px;
+    position: absolute;
+    top: 75px;
+    left: 30px;
+    transform: translate(-50%, -50%);
+}
+
+.joystick-arrow-right {
+    font-size: 30px;
+    position: absolute;
+    top: 75px;
+    left: 120px;
+    transform: translate(-50%, -50%);
+}
+
+.joystick-base {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 35px;
+    left: 35px;
+    background: rgb(255, 255, 255);
+    border-radius: 100%;
+}
+
+.joystick-back{
+    display: flex;
+}
+
+#stick1, #stick2 {
+    width: 55px;
+    height: 55px;
+    position: relative;
+    top: 30px;
+    background: transparent;
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(44, 44, 44);
+    border-image: initial;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.stick-inside {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    top: 1px;
+    left: 1px;
+    background: rgb(44, 44, 44);
+    border-radius: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+}
+
+.ctrl-c{
+    margin: 10px;
+    height: 100vh;
+    width: 50%;
+}
+
+.ESPcam{
+    /* height: 100%; */
+    margin-top: auto;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.ctrl-r{
+    margin-top: 10px;
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    width: 100%;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    background: rgb(217, 217, 217);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    display: flex;
+    line-height: 25px;
+    transition: .15s ease-in-out;
+}
+
+
+.btn:active{
+    transform: scale(0.95);
+}
+
+.btn-text{
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.btn-emgc{
+    /* padding: 25px; */
+    background: #FF5D5D;
+}
+
+.btn-pos{
+    width: 45px;
+    height: 45px;
+}
+
+.btn-func{
+    /* padding: 8px 25px 8px 25px; */
+    background: #D9D9D9;
+    gap: 20px;
+}
+
+.joy-pos{
+    width: 100%;
+    height: 100%;
+}
+
+.pos-ctrl{
+    position: absolute;
+    left: 140px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column; 
+    gap: 30px;
+    transform: scale(0.8);
+    /* background: rgb(255, 255, 255); */
+    /* border-radius: 20px;     */
+}
+
+.pos-ctrl-2{
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column; 
+    gap: 30px;
+    transform: scale(0.8);
+    /* background: rgb(255, 255, 255); */
+    /* border-radius: 20px;     */
+}
+
+.btn-audio{
+    position: relative;
+    top: 15px;
+    left: 15px;
+    height: 45px;
+    width: 45px;
+}

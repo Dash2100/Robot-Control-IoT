@@ -1,23 +1,35 @@
 from flask import Flask, Response, render_template
+import imutils
 import pyaudio
+import time
 import cv2
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 p = pyaudio.PyAudio()
-mic = 0
+mic = 2
 
 def generate_frames():
     cam = cv2.VideoCapture(0)
 
+    # 設置初始時間和幀率
+    fps = 40
+    prev = 0
+
     while True:
+        time_elapsed = time.time() - prev
         ret, frame = cam.read()
         if not ret:
             break
-        else:
-            # frame = imutils.resize(frame, width=600)
+        
 
-            ret, buffer = cv2.imencode('.jpg', frame)
+        if time_elapsed > 1./fps:
+            prev = time.time()
+
+            frame = imutils.resize(frame, width=800)
+
+            encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 50]
+            ret, buffer = cv2.imencode('.jpg', frame, encode_param)
             if not ret:
                 continue
             frame = buffer.tobytes()
@@ -49,7 +61,7 @@ def generateAudio():
     FORMAT = pyaudio.paInt16
     CHUNK = 128  # Reduced chunk size
     CHANNELS = 1
-    RATE = 44100
+    RATE = 48000
     bitsPerSample = 16
 
     wav_header = genHeader(RATE, bitsPerSample, CHANNELS)
